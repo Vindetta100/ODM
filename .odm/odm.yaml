@@ -1,0 +1,20 @@
+# odm.yaml - Official Development Methodology v11.0
+version: "11.0"
+projectMode: "enterprise"
+
+test:
+  testCmd: "echo 'Configure your test command'"
+  e2eSelector: ""
+  coverageCmd: "echo 'Configure your coverage command'"
+
+paths:
+  reportDir: ".odm/reports"
+  sourceDirs: ["src/", "lib/", "app/"]
+
+deployment:
+  remoteName: "origin"
+  mainBranch: "main"
+
+integrity:
+  fileGlobs: ["*.py", "*.md", "*.json", "*.js", "*.ts", "*.rs", "*.sh", "*.yaml", "*.yml"]
+  critical: ["README.md", "CHANGELOG.md", ".odm/odm.yaml"]
