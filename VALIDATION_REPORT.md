@@ -6,6 +6,7 @@
 2. **PRESERVE TEMPLATE** - Never overwrite the RULES, TEMPLATE, or WARNING sections above the separator
 3. **SINGLE FILE** - Only one validation report exists (no history, no versions)
 4. **LATEST ONLY** - This report always reflects the most recent session validation
+5. **NUMBERED SECTIONS** - All sections are numbered 1-8 so you can verify nothing was skipped
 
 ## TEMPLATE
 
@@ -56,7 +57,22 @@ Files changed, insertions, deletions
 
 ---
 
-## 6. Deleted Files & Dependencies Analysis
+## 6. AI Self-Analysis
+- **Confidence Level:** X/10
+- **What Went Well:** [What the AI did well in this session]
+- **What Needs Improvement:** [What needs fixing or could be better]
+- **Merge Recommendation:** merge-now / fix-first / needs-review
+
+---
+
+## 7. Alignment Verification
+- **Commits vs Changelog:** ✅ ALIGNED / ⚠️ MISALIGNED
+- **Files vs Descriptions:** ✅ ALIGNED / ⚠️ MISALIGNED
+- **Undocumented Changes:** ✅ NONE / ⚠️ FOUND
+
+---
+
+## 8. Deleted Files & Dependencies Analysis
 
 ### Deleted Files
 ✅ No files were deleted / ⚠️ WARNING: X file(s) deleted
@@ -70,10 +86,25 @@ Files changed, insertions, deletions
 ## HOW IT WORKS
 
 When `end.sh` runs, it will:
-1. **Read this template** to understand the structure
+1. **Prompt for 8 categories of information** (numbered 1-8)
 2. **Generate the new report** with current session data
 3. **Overwrite everything BELOW the separator** with the new report
 4. **Preserve everything ABOVE the separator** (RULES, TEMPLATE, WARNING)
+
+## VERIFICATION CHECKLIST
+
+After end.sh completes, verify the report has ALL 8 numbered sections:
+
+- [ ] **Section 1:** Git Commits Summary
+- [ ] **Section 2:** File Changes Overview
+- [ ] **Section 3:** Session Summary
+- [ ] **Section 4:** Validation Status
+- [ ] **Section 5:** ODM AI Rules Compliance
+- [ ] **Section 6:** AI Self-Analysis (NEW)
+- [ ] **Section 7:** Alignment Verification (NEW)
+- [ ] **Section 8:** Deleted Files & Dependencies Analysis
+
+**If any section number is missing, the AI skipped a step!**
 
 ---
 

@@ -229,6 +229,33 @@ echo "5. COMMIT (brief technical summary):"
 read -p "   > " COMMIT_MSG
 echo ""
 
+echo "6. AI SELF-ANALYSIS:"
+echo ""
+echo "   Confidence Level (1-10, where 10 is highest confidence):"
+read -p "   > " CONFIDENCE_LEVEL
+echo ""
+echo "   What went well in this session:"
+read -p "   > " WENT_WELL
+echo ""
+echo "   What needs improvement or fixing:"
+read -p "   > " NEEDS_IMPROVEMENT
+echo ""
+echo "   Merge recommendation (merge-now / fix-first / needs-review):"
+read -p "   > " MERGE_REC
+echo ""
+
+echo "7. ALIGNMENT VERIFICATION:"
+echo ""
+echo "   Do commit messages match what you described in changelog? (yes/no):"
+read -p "   > " COMMITS_ALIGN
+echo ""
+echo "   Do actual file changes match your descriptions? (yes/no):"
+read -p "   > " FILES_ALIGN
+echo ""
+echo "   Are there any undocumented changes? (yes/no):"
+read -p "   > " UNDOCUMENTED_CHANGES
+echo ""
+
 # 9. Generate consolidated validation report (enhanced format)
 echo "📋 Generating consolidated validation report..."
 REPORT_FILE="VALIDATION_REPORT.md"
@@ -311,7 +338,22 @@ $DIFF_STAT
 
 ---
 
-## 6. Deleted Files & Dependencies Analysis
+## 6. AI Self-Analysis
+- **Confidence Level:** $CONFIDENCE_LEVEL/10
+- **What Went Well:** $WENT_WELL
+- **What Needs Improvement:** $NEEDS_IMPROVEMENT
+- **Merge Recommendation:** $MERGE_REC
+
+---
+
+## 7. Alignment Verification
+- **Commits vs Changelog:** $([ "$COMMITS_ALIGN" = "yes" ] || [ "$COMMITS_ALIGN" = "y" ] && echo "✅ ALIGNED" || echo "⚠️  MISALIGNED")
+- **Files vs Descriptions:** $([ "$FILES_ALIGN" = "yes" ] || [ "$FILES_ALIGN" = "y" ] && echo "✅ ALIGNED" || echo "⚠️  MISALIGNED")
+- **Undocumented Changes:** $([ "$UNDOCUMENTED_CHANGES" = "no" ] || [ "$UNDOCUMENTED_CHANGES" = "n" ] && echo "✅ NONE" || echo "⚠️  FOUND")
+
+---
+
+## 8. Deleted Files & Dependencies Analysis
 
 ### Deleted Files
 $(if [ "$DELETED_COUNT" -gt 0 ]; then
@@ -398,7 +440,7 @@ rm -f "$TEMP_REPORT"
 echo "✅ Validation report generated: $REPORT_FILE"
 echo ""
 
-echo "6. FILES TO DELETE (comma-separated, or 'none'):"
+echo "8. FILES TO DELETE (comma-separated, or 'none'):"
 read -p "   > " FILES_TO_DELETE
 echo ""
 
