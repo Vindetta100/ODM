@@ -232,6 +232,7 @@ echo ""
 # 9. Generate consolidated validation report (enhanced format)
 echo "📋 Generating consolidated validation report..."
 REPORT_FILE="VALIDATION_REPORT.md"
+TEMP_REPORT=".odm/temp_validation_report.md"
 
 # Get Git data for validation
 MERGE_BASE=$(git merge-base HEAD origin/main 2>/dev/null || echo "$(git log --oneline | tail -1 | awk '{print $1}')")
@@ -263,8 +264,8 @@ if [ -f "package.json" ] && command -v jq &> /dev/null; then
   fi
 fi
 
-# Generate report with all sections
-cat > $REPORT_FILE <<- EOM
+# Generate new report content to temp file
+cat > $TEMP_REPORT <<- EOM
 # ODM v11.2 - End-of-Task Validation Report
 
 **Date**: $(date)
@@ -360,6 +361,39 @@ fi)
 
 ---
 EOM
+
+# Preserve template section and append new report
+if [ -f "$REPORT_FILE" ]; then
+  # Extract template section (everything up to and including the separator)
+  awk '
+    /^⚠️ \*\*WARNING: DO NOT MODIFY ANYTHING ABOVE THIS LINE\*\* ⚠️$/ { 
+      print; 
+      getline; print;  # blank line
+      getline; print;  # explanation line 1
+      getline; print;  # explanation line 2
+      getline; print;  # explanation line 3
+      getline; print;  # blank line
+      getline; print;  # separator ---
+      getline; print;  # blank line
+      exit 
+    }
+    { print }
+  ' "$REPORT_FILE" > "${REPORT_FILE}.tmp"
+  
+  # Append new report content
+  echo "## Latest Validation Report" >> "${REPORT_FILE}.tmp"
+  echo "" >> "${REPORT_FILE}.tmp"
+  cat "$TEMP_REPORT" >> "${REPORT_FILE}.tmp"
+  
+  # Replace original with combined version
+  mv "${REPORT_FILE}.tmp" "$REPORT_FILE"
+else
+  # First time - just use the temp report
+  mv "$TEMP_REPORT" "$REPORT_FILE"
+fi
+
+# Clean up temp file
+rm -f "$TEMP_REPORT"
 
 echo "✅ Validation report generated: $REPORT_FILE"
 echo ""
