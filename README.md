@@ -6,6 +6,13 @@
 
 ---
 
+> **⚠️ AI INSTRUCTION: This is the ODM protocol README template.**  
+> **When installing ODM into a project, you MUST update this README.md to reflect the ACTUAL PROJECT, not the ODM protocol itself.**  
+> **Replace the content below with your project's name, description, tech stack, setup instructions, and architecture.**  
+> **Keep only the ODM-specific sections (like "ODM Workflow" and references to start.sh/end.sh) as supplementary information.**
+
+---
+
 ## Overview
 
 ODM (Organized Development Method) is a comprehensive development protocol designed for AI-driven software development. It provides automated validation, compliance enforcement, and session management to ensure consistent code quality and architectural integrity across all development sessions.
@@ -173,27 +180,17 @@ ODM/
 ├── odm_ai_rules.md           # Development rules for AI
 ├── VALIDATION_REPORT.md      # Latest validation report (single file)
 ├── README.md                 # This file
-├── UPGRADE_GUIDE.md          # Upgrade instructions
-├── UPDATE_CHANGELOG.md       # Detailed change log for v11.1
-├── QUICK_REFERENCE.md        # Quick start guide
-└── IMPLEMENTATION_SUMMARY.md # Implementation details
+└── UPGRADE_GUIDE.md          # Upgrade instructions
 ```
 
 ---
 
 ## Documentation
 
-### For Users
-- **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** - Quick start guide with examples
-- **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** - Complete implementation details
-
-### For Developers
-- **[UPDATE_CHANGELOG.md](UPDATE_CHANGELOG.md)** - Detailed technical change log
-- **[odm_ai_rules.md](odm_ai_rules.md)** - AI development rules
-
-### Templates
 - **[ARCHITECTURE.md](ARCHITECTURE.md)** - Project architecture template
 - **[CHANGELOG.md](CHANGELOG.md)** - Session changelog template
+- **[odm_ai_rules.md](odm_ai_rules.md)** - AI development rules
+- **[UPGRADE_GUIDE.md](UPGRADE_GUIDE.md)** - Upgrade instructions
 
 ---
 
@@ -366,7 +363,7 @@ MIT License - See LICENSE file for details
 For questions, issues, or feature requests:
 - Open an issue on GitHub
 - Check existing documentation in the repository
-- Review QUICK_REFERENCE.md for common use cases
+- Review UPGRADE_GUIDE.md for upgrade instructions
 
 ---
 
