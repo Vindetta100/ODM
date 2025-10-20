@@ -1,6 +1,6 @@
 # ODM - Organized Development Method
 
-**Version:** 11.1 (Enhanced AI Rules Enforcement)  
+**Version:** 11.2 (Simplified Structure & Safe Upgrades)  
 **Status:** Production Ready  
 **License:** MIT
 
@@ -72,13 +72,31 @@ bash .odm/end.sh
 
 ---
 
+## What's New in v11.2
+
+### 🔄 Simplified Structure & Safe Upgrades
+
+**File organization improvements:**
+- Moved `odm_ai_rules.md` to root (easier to find and edit)
+- Moved `VALIDATION_REPORT.md` to root (single file, always overwrites)
+- Removed `.odm/reports/` folder (no more clutter)
+
+**New upgrade mechanism:**
+- Added `upgrade.sh` script for safe ODM upgrades
+- Automatic backup of project-specific files
+- Preserves ARCHITECTURE.md, CHANGELOG.md, odm_ai_rules.md, etc.
+- Only upgrades core scripts (start.sh, end.sh)
+- See [UPGRADE_GUIDE.md](UPGRADE_GUIDE.md) for details
+
+---
+
 ## What's New in v11.1
 
 ### 🎯 AI Rules Enforcement
 
 **start.sh now explicitly instructs AI to:**
 - Read ARCHITECTURE.md (single source of truth)
-- Read .odm/odm_ai_rules.md (development rules)
+- Read odm_ai_rules.md (development rules)
 - Review CHANGELOG.md (recent context)
 - Remember 6 key ODM rules
 
@@ -148,12 +166,14 @@ ODM/
 │   ├── start.sh              # Session start script
 │   ├── end.sh                # Session end script
 │   ├── guardian.sh           # Security and validation checks
-│   ├── odm_ai_rules.md       # Development rules for AI
-│   ├── odm.yaml              # Project configuration
-│   └── reports/              # Validation reports directory
+│   ├── upgrade.sh            # Upgrade script
+│   └── odm.yaml              # Project configuration
 ├── ARCHITECTURE.md           # Project architecture documentation
 ├── CHANGELOG.md              # Session changelog
+├── odm_ai_rules.md           # Development rules for AI
+├── VALIDATION_REPORT.md      # Latest validation report (single file)
 ├── README.md                 # This file
+├── UPGRADE_GUIDE.md          # Upgrade instructions
 ├── UPDATE_CHANGELOG.md       # Detailed change log for v11.1
 ├── QUICK_REFERENCE.md        # Quick start guide
 └── IMPLEMENTATION_SUMMARY.md # Implementation details
@@ -169,7 +189,7 @@ ODM/
 
 ### For Developers
 - **[UPDATE_CHANGELOG.md](UPDATE_CHANGELOG.md)** - Detailed technical change log
-- **[.odm/odm_ai_rules.md](.odm/odm_ai_rules.md)** - AI development rules
+- **[odm_ai_rules.md](odm_ai_rules.md)** - AI development rules
 
 ### Templates
 - **[ARCHITECTURE.md](ARCHITECTURE.md)** - Project architecture template
@@ -303,7 +323,15 @@ We refine the protocol every time we discover an improvement opportunity.
 
 ## Version History
 
-### v11.1 (Current)
+### v11.2 (Current)
+- Moved `odm_ai_rules.md` to root for easier access
+- Moved `VALIDATION_REPORT.md` to root (single file, overwrites)
+- Removed `.odm/reports/` folder
+- Added `upgrade.sh` for safe ODM upgrades
+- Added `UPGRADE_GUIDE.md` with comprehensive upgrade instructions
+- Updated all references in scripts and documentation
+
+### v11.1
 - Added AI rules enforcement at session start
 - Added ODM compliance checklist at session end
 - Enhanced validation report with compliance results

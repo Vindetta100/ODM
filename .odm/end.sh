@@ -231,9 +231,7 @@ echo ""
 
 # 9. Generate consolidated validation report (enhanced format)
 echo "📋 Generating consolidated validation report..."
-REPORT_DIR=".odm/reports"
-mkdir -p "$REPORT_DIR"
-REPORT_FILE="$REPORT_DIR/VALIDATION_REPORT.md"
+REPORT_FILE="VALIDATION_REPORT.md"
 
 # Get Git data for validation
 MERGE_BASE=$(git merge-base HEAD origin/main 2>/dev/null || echo "$(git log --oneline | tail -1 | awk '{print $1}')")
