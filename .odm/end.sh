@@ -265,7 +265,7 @@ fi
 
 # Generate report with all sections
 cat > $REPORT_FILE <<- EOM
-# ODM v11.0 - End-of-Task Validation Report
+# ODM v11.2 - End-of-Task Validation Report
 
 **Date**: $(date)
 **Session**: $SESSION_NUM
