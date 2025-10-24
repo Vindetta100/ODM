@@ -293,7 +293,7 @@ fi
 
 # Generate new report content to temp file
 cat > $TEMP_REPORT <<- EOM
-# ODM v11.2 - End-of-Task Validation Report
+# ODM v12 - End-of-Task Validation Report
 
 **Date**: $(date)
 **Session**: $SESSION_NUM

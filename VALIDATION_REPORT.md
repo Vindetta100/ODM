@@ -11,7 +11,7 @@
 ## TEMPLATE
 
 ```markdown
-# ODM v11.2 - End-of-Task Validation Report
+# ODM v12 - End-of-Task Validation Report
 
 **Date**: YYYY-MM-DD HH:MM:SS
 **Session**: X.X
@@ -121,4 +121,3 @@ After end.sh completes, verify the report has ALL 8 numbered sections:
 [The latest validation report will be generated here by end.sh]
 
 **Status:** No session completed yet. Run `bash .odm/end.sh` to generate the first validation report.
-

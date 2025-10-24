@@ -1,5 +1,5 @@
-# odm.yaml - Official Development Methodology v11.2
-version: "11.2"
+# odm.yaml - Official Development Methodology v12
+version: "12"
 projectMode: "enterprise"
 
 test:

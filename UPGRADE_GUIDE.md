@@ -203,7 +203,13 @@ diff /tmp/ODM/.odm/end.sh /path/to/your/project/.odm/end.sh
 
 ## Version History
 
-### v11.2 (Current)
+### v12 (Current)
+- Enhanced stability and version management
+- Updated all version references to v12
+- Improved system reliability and testing
+- Streamlined version update process
+
+### v11.2
 - ✅ Moved `odm_ai_rules.md` to root
 - ✅ Moved `VALIDATION_REPORT.md` to root (single file, overwrites)
 - ✅ Removed `.odm/reports/` folder
@@ -246,4 +252,3 @@ For issues or questions:
 ---
 
 **Safe upgrades. Zero data loss. Maximum confidence.**
-

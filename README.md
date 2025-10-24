@@ -1,6 +1,6 @@
 # ODM - Organized Development Method
 
-**Version:** 11.2 (Simplified Structure & Safe Upgrades)  
+**Version:** 12 (Latest Release)
 **Status:** Production Ready  
 **License:** MIT
 
@@ -79,9 +79,9 @@ bash .odm/end.sh
 
 ---
 
-## What's New in v11.2
+## What's New in v12
 
-### 🔄 Simplified Structure & Safe Upgrades
+### 🔄 Enhanced Stability & Version Management
 
 **File organization improvements:**
 - Moved `odm_ai_rules.md` to root (easier to find and edit)
@@ -320,7 +320,13 @@ We refine the protocol every time we discover an improvement opportunity.
 
 ## Version History
 
-### v11.2 (Current)
+### v12 (Current)
+- Enhanced stability and version management
+- Updated all version references from v11.2 to v12
+- Improved system reliability and testing
+- Streamlined version update process
+
+### v11.2
 - Moved `odm_ai_rules.md` to root for easier access
 - Moved `VALIDATION_REPORT.md` to root (single file, overwrites)
 - Removed `.odm/reports/` folder
@@ -368,4 +374,3 @@ For questions, issues, or feature requests:
 ---
 
 **Built for AI-driven development. Refined through continuous iteration.**
-
